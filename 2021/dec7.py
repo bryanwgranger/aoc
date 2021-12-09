@@ -1,11 +1,7 @@
 with open('dec7.txt') as f:
     positions = [int(x) for x in f.read().split(',')]
 
-print(positions)
-print(len(positions))
-
 test = [16,1,2,0,4,2,7,1,2,14]
-
 
 fuel_dict_pt_1 = {}
 for pos in positions:
@@ -14,9 +10,8 @@ for pos in positions:
         fuel += abs(pos - positions[j])
     fuel_dict_pt_1[pos] = fuel
 
-print(fuel_dict_pt_1)
-print(sorted(fuel_dict_pt_1.items(), key=lambda item: item[1])[0])
-
+print('part 1:')
+print(sorted(fuel_dict_pt_1.items(), key=lambda item: item[1])[0][1])
 
 fuel_dict_pt_2 = {}
 
@@ -30,5 +25,5 @@ for l in range(len(positions)):
         fuel += sum
     fuel_dict_pt_2[l] = fuel
 
-print(fuel_dict_pt_2)
-print(sorted(fuel_dict_pt_2.items(), key=lambda item: item[1])[0])
+print('part 2:')
+print(sorted(fuel_dict_pt_2.items(), key=lambda item: item[1])[0][1])

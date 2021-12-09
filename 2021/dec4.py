@@ -9,12 +9,12 @@ nums = [17,11,37,7,89,48,99,28,56,55,57,27,83,59,53,72,6,87,
 
 with open('dec4.txt') as f:
         n = list(num.strip() for num in f.readlines())
-# print(n)
+
 
 called_nums = []
 
 all_boards = np.zeros((100,5,5))
-# print(all_boards)
+
 for i in range(0, 100):
         # if i > 0 and i%5 == 0:
         one_board = np.array([[int(t) for t in n[i*6].split()],
@@ -58,9 +58,10 @@ for i in range(5):
                 if winner[i][j] not in called_nums:
                         count += winner[i][j]
 
-print('part 1:', count * called_nums[-1])
+print('part 1:')
+print(count * called_nums[-1])
 
-print('end of part 1')
+
 #part 2
 
 c = False
@@ -77,17 +78,15 @@ for i in range(100):
                 # c = check_board(all_boards[board], np.array(called_nums))
                 if check_board(all_boards[board], np.array(called_nums)):
                         non_winning_boards.remove(board)
-        print(non_winning_boards)
-        print(len(called_nums))
+
         if len(non_winning_boards) == 1:
                 break
-print('non winning boards:')
-print(non_winning_boards)
 
-loser = all_boards[99]
-print(called_nums)
 
-### board 44 is the last one, although this algorithm selected 99 as the last one. ?????
+loser = all_boards[44]
+
+
+### board 44 is the last one, although this algorithm selected 99 as the second to last one. ?????
 
 c = False
 i = 0
@@ -97,15 +96,11 @@ while not c:
         c = check_board(loser, np.array(called_nums))
         i += 1
 
-print('playing loser board')
-print(called_nums)
+
 count = 0
 for i in range(5):
         for j in range(5):
                 if loser[i][j] not in called_nums:
                         count += loser[i][j]
-print(count)
+print('part 2:')
 print(count * called_nums[-1])
-print(len(called_nums))
-print(loser)
-print(np.isin(loser, np.array(called_nums)))

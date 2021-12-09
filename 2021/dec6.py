@@ -14,12 +14,10 @@ test = [3,4,3,1,2]
 
 
 new_population = initial
-days1 = 0
+days1 = 80
 
 
 for i in range(days1):
-    if i % 10 == 0:
-        print(f'starting day {i}')
     newer_population = []
     count = 0
     for num in new_population:
@@ -34,8 +32,9 @@ for i in range(days1):
         newer_population.append(8)
     new_population = newer_population
 
-# print(new_population)
+print('part 1:')
 print(len(new_population))
+
 
 #for part 2
 
@@ -57,32 +56,14 @@ for i in range(days2):
         else:
             t_dict[j-1] += daily_fish_dict[j]
     daily_fish_dict = t_dict
-print(daily_fish_dict)
 
 total_sum = 0
 for k, v in daily_fish_dict.items():
     total_sum += v
+print('part 2:')
 print(total_sum)
 
-# for i in range(days2):
-#     if i % 10 == 0:
-#         print(f'starting day {i}')
-#     newer_population = []
-#     count = 0
-#     for num in new_population:
-#         if num > 0:
-#             new_num = num - 1
-#             newer_population.append(new_num)
-#         else:
-#             new_num = 6
-#             newer_population.append(new_num)
-#             count += 1
-#     new_fish_dict[i] =
-#     # for j in range(count):
-#     #     newer_population.append(8)
-#     new_population = newer_population
 
-# print(new_population)
-print(len(new_population))
+
 
 
