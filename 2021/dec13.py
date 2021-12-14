@@ -12,21 +12,15 @@ for line in lines:
         if line:
             points.append(line)
 
-x = [int(p.split(',')[0]) for p in points]
-y = [int(p.split(',')[1]) for p in points]
+X = [int(p.split(',')[0]) for p in points]
+Y = [int(p.split(',')[1]) for p in points]
 
 grid = []
-row = ['.'] * (max(x)+1)
+for _ in range(max(Y)+1):
+    grid.append(['.'] * (max(X)+1))
 
-for _ in range(max(y)+1):
-    grid.append(['.'] * (max(x)+1))
-
-for i, pt in enumerate(points):
-
-    r = int(pt.split(',')[1])
-    c = int(pt.split(',')[0])
-
-    grid[r][c] = '#'
+for x, y in zip(X,Y):
+    grid[y][x] = '#'
 
 count = 0
 for dir, mag in folds:
