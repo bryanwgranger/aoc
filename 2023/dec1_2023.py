@@ -15,10 +15,6 @@ for line in lines:
 
 print("answer part one:", part_1)
 
-with open("dec1_2023.input", "r") as infile:
-    lines = [t.strip() for t in infile.readlines()]
-
-
 #part2
 part_2 = 0
 num_map = {"one": 1,
@@ -45,6 +41,5 @@ for line in lines:
     last_num = str(line2_digits[-1]) if line2_digits[-1].isdigit() else str(num_map[line2_digits[-1]])
 
     part_2 += int(first_num + last_num)
-
 
 print("answer part two:", part_2)
