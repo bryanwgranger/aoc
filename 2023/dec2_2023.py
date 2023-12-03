@@ -28,9 +28,9 @@ for line in lines:
                 state = False
             blue_colors.append(int(num))
 
-    red_max = max(red_colors) #if len(red_colors) > 0 else 1
-    green_max = max(green_colors) #if len(green_colors) > 0 else 1
-    blue_max = max(blue_colors) #if len(blue_colors) > 0 else 1
+    red_max = max(red_colors)
+    green_max = max(green_colors)
+    blue_max = max(blue_colors)
 
     if state:
         total += int(game_number)
