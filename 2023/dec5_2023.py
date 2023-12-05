@@ -15,35 +15,52 @@ for i, l in enumerate(lines):
         map_dict[current_map] = []
     if current_map and current_map not in l:
         map_dict[current_map].append([int(b) for b in l.split()])
-print(map_dict)
+print(map_dict.keys())
 seed_paths = {k:[] for k in seeds}
 
 new_seed = None
 for s in seeds:
-    if not seed_paths[s]:
-        seed = s
+    print(seed_paths)
+    # if not new_seed:
+    #     seed = s
+    # else:
+    #     seed = new_seed
+    if len(seed_paths[s]) == 0:
+        current_num = s
     else:
-        seed = seed_paths[s][-1]
-    for k, vals in map_dict.items():
+        current_num = seed_paths[s][-1]
+    print(current_num)
+    for i, (k, vals) in enumerate(map_dict.items()):
         mapped = False
         for v in vals:
+
+            #set placeholder
+            #seed_paths[s].append(current_num)
             destination_range_start = v[0]
             source_range_start = v[1]
             step = v[2]
 
-            d_range = range(v[0],v[0]+step+1)
+            d_range = range(v[0], v[0]+step+1)
             s_range = range(v[1], v[1]+step+1)
 
             #mapper = zip(s_range, d_range)
-
-            if seed in s_range:
-                s_idx = seed - v[1]
+            #print(seed)
+            if current_num in s_range:
+                s_idx = current_num - v[1]
                 dest_num = v[0] + s_idx
+                print("dest", dest_num)
+                print(seed_paths[s])
                 seed_paths[s].append(dest_num)
-                mapped = True
+                print(seed_paths[s])
+                new_seed = dest_num
+                continue
+
 
         if not mapped:
-            seed_paths[s].append(seed)
+
+            seed_paths[s].append(current_num)
+            new_seed = current_num
+
 
 
 
