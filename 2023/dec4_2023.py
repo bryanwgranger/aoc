@@ -1,3 +1,4 @@
+
 with open("dec4_2023.input", "r") as infile:
     lines = [t.strip() for t in infile.readlines()]
 
