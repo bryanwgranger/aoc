@@ -38,9 +38,12 @@ def get_data(args):
     with open("pytemplate.mustache", "r") as chevfile:
         chev_text = chevron.render(chevfile, data={"day": day,
                                        "year": year})
-
-    with open(os.path.join(aoc_dir, f"dec{day}_{year}.py"), "w") as pyfile:
-        pyfile.write(chev_text)
+    file_path = os.path.join(aoc_dir, f"dec{day}_{year}.py")
+    if not os.path.exists(file_path):
+        with open(os.path.join(aoc_dir, f"dec{day}_{year}.py"), "w") as pyfile:
+            pyfile.write(chev_text)
+    else:
+        print("warning: python file for this day has been detected. The existing file has not been overwritten.")
 
     print(f"Input for Dec {day}, {year} has been downloaded!")
 
